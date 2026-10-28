@@ -3,7 +3,7 @@
 import React from 'react';
 import Typography from '@mui/joy/Typography';
 import { portfolioColors } from '@portfolio/ui';
-import { Code2, Terminal, Shield, Cpu, Layers } from 'lucide-react';
+import { Code2, Terminal, Cpu, Layers } from 'lucide-react';
 
 export function AboutSection() {
   const skillCategories = [
@@ -20,8 +20,8 @@ export function AboutSection() {
       skills: ['PostgreSQL & Connection Pooling', 'SQLite with Write-Ahead Logging (WAL)', 'Redis Caching & Token Limiting', 'Prisma ORM & Raw SQL Optimizations', 'Expand/Contract Safe Migrations'],
     },
     {
-      title: 'Security & DevSecOps',
-      skills: ['STRIDE Threat Modeling', 'OWASP Top 10 Mitigation', 'Docker Containerization & Multi-Stage Builds', 'GitHub Actions CI/CD GitOps', 'Linux Performance Profiling'],
+      title: 'Infrastructure & Engineering Toolchain',
+      skills: ['Docker Containerization & Multi-Stage Builds', 'GitHub Actions CI/CD Automation', 'Linux Systems Administration & Profiling', 'Automated Test Harnesses (Jest, Cargo)', 'Monorepo Tooling (pnpm, Turborepo)'],
     },
   ];
 
@@ -99,7 +99,7 @@ export function AboutSection() {
           }}
         >
           <p style={{ margin: 0 }}>
-            I am a software engineer based in Karachi, dedicated to building software that holds up under intense operational scrutiny.
+            I am a software engineer based in Lahore, dedicated to building software that holds up under intense operational scrutiny.
             My approach is grounded in first principles: identifying the precise problem, establishing type-safe invariants, and verifying
             system behavior empirically through concrete test evidence.
           </p>

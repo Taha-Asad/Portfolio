@@ -22,15 +22,15 @@ export function ExperienceSection() {
     },
     {
       period: '2026',
-      role: 'Security Architect & Lead Requirements Engineer',
+      role: 'Platform Architect & Lead Requirements Engineer',
       project: 'BugBountyTrack Platform',
       code: 'PRJ-2026-BBT',
       summary:
-        'Authored and frozen formal IEEE 830 / ISO/IEC/IEEE 29148 software requirements specification (SRS Rev 2.8) for an enterprise vulnerability lifecycle management and bounty tracking platform. Built STRIDE threat models and bidirectional traceability matrix across 100+ formal system requirements.',
+        'Authored and frozen formal IEEE 830 / ISO/IEC/IEEE 29148 software requirements specification (SRS Rev 2.8) for an enterprise vulnerability lifecycle management and bounty tracking platform. Designed multi-tenant architecture and bidirectional traceability matrix across 100+ formal system requirements.',
       highlights: [
-        'STRIDE threat analysis identifying and mitigating OWASP Top 10 vulnerabilities',
+        'Rigorous IEEE 830 / ISO/IEC/IEEE 29148 systems requirement engineering and formal SRS specification',
         'Bidirectional Requirements Traceability Matrix linking requirements to test vectors',
-        'Full multi-tenant role-based access control and cryptographic audit logging',
+        'Full multi-tenant role-based access control and audit logging architecture',
       ],
     },
     {

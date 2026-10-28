@@ -45,7 +45,7 @@ export function Footer() {
             onMouseEnter={(e) => (e.currentTarget.style.color = portfolioColors.parchmentTextPrimary)}
             onMouseLeave={(e) => (e.currentTarget.style.color = portfolioColors.parchmentTextSecondary)}
           >
-            Back to Top ↑
+            Back to Top
           </a>
 
           <a

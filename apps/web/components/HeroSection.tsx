@@ -4,7 +4,7 @@ import React from 'react';
 import Typography from '@mui/joy/Typography';
 import Button from '@mui/joy/Button';
 import { portfolioColors } from '@portfolio/ui';
-import { ArrowUpRight, ShieldCheck, Terminal, Layers, Cpu } from 'lucide-react';
+import { ArrowUpRight, Sparkles, Terminal, Layers, Cpu } from 'lucide-react';
 
 export function HeroSection() {
   return (
@@ -50,7 +50,7 @@ export function HeroSection() {
             textTransform: 'uppercase',
           }}
         >
-          Systems &amp; Full-Stack Software Engineer // Karachi
+          Systems &amp; Full-Stack Software Engineer // Lahore
         </Typography>
       </div>
 
@@ -157,7 +157,7 @@ export function HeroSection() {
             },
           }}
         >
-          Get in Touch →
+          Get in Touch
         </Button>
       </div>
 
@@ -191,10 +191,10 @@ export function HeroSection() {
             desc: 'Synthetic rate limiting benchmark',
           },
           {
-            icon: <ShieldCheck size={18} color="#7C3AED" />,
-            label: 'SECURITY AUDITING',
-            value: 'STRIDE Threat Models',
-            desc: 'Formal IEEE-grade traceability',
+            icon: <Sparkles size={18} color="#7C3AED" />,
+            label: 'DESKTOP PLATFORMS',
+            value: 'Tauri v2 & Rust',
+            desc: 'Cross-platform native financial engines',
           },
         ].map((stat, idx) => (
           <div

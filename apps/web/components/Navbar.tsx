@@ -267,9 +267,16 @@ export function Navbar() {
               href="https://github.com/Taha-Asad"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ fontSize: '0.85rem', color: portfolioColors.parchmentTextSecondary, textDecoration: 'none' }}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '4px',
+                fontSize: '0.85rem',
+                color: portfolioColors.parchmentTextSecondary,
+                textDecoration: 'none',
+              }}
             >
-              GitHub ↗
+              GitHub <ArrowUpRight size={14} />
             </a>
           </div>
 

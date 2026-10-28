@@ -37,18 +37,18 @@ export const DEFAULT_WORKS: Work[] = [
     recordId: 'PRJ-2026-BBT',
     slug: 'bugbountytrack',
     title: 'BugBountyTrack Platform',
-    subtitle: 'Academic Vulnerability Lifecycle & Bounty Tracking System',
+    subtitle: 'Vulnerability Lifecycle & Governance Platform',
     description:
-      'Formal vulnerability management and bounty workflow engine architected to ISO/IEC/IEEE 29148 and IEEE 830 standards. Features STRIDE threat modeling, multi-tenant RBAC, automated cryptographic audit trails, and strict bidirectional SRS traceability.',
+      'Formal vulnerability management and bounty workflow engine architected to ISO/IEC/IEEE 29148 and IEEE 830 standards. Features multi-tenant RBAC, automated workflow audit trails, and strict bidirectional SRS traceability.',
     type: 'RESEARCH',
     status: 'IN_PROGRESS',
-    area: 'APPLICATION SECURITY',
+    area: 'REQUIREMENTS & ARCHITECTURE',
     owner: 'Taha Asadullah',
     progress: 65,
-    tags: ['Next.js 15', 'TypeScript', 'PostgreSQL', 'Prisma', 'STRIDE', 'Docker'],
+    tags: ['Next.js 15', 'TypeScript', 'PostgreSQL', 'Prisma', 'Docker', 'IEEE 830'],
     milestones: [
       { id: 'm1', workId: 'bugbountytrack', title: 'Formal SRS Revision 2.8 frozen & verified', completed: true, order: 1 },
-      { id: 'm2', workId: 'bugbountytrack', title: 'STRIDE threat analysis & OWASP Top 10 mitigation design', completed: true, order: 2 },
+      { id: 'm2', workId: 'bugbountytrack', title: 'Multi-tenant role-based access control & audit trail architecture', completed: true, order: 2 },
       { id: 'm3', workId: 'bugbountytrack', title: 'Bidirectional Requirements Traceability Matrix (RTM)', completed: true, order: 3 },
     ],
     createdAt: '2026-09-15T00:00:00Z',
@@ -187,7 +187,7 @@ export function WorksSection({ works }: WorksSectionProps) {
             maxWidth: '680px',
           }}
         >
-          A selection of desktop financial systems, security lifecycle platforms, concurrent distributed engines, and developer tools built with high rigor.
+          A selection of desktop financial systems, enterprise platforms, concurrent distributed engines, and developer tools built with high rigor.
         </p>
 
         {/* Filter Tabs */}
@@ -202,7 +202,7 @@ export function WorksSection({ works }: WorksSectionProps) {
           {[
             { id: 'ALL', label: 'All Works' },
             { id: 'SYSTEM', label: 'Systems & Distributed' },
-            { id: 'RESEARCH', label: 'Security & Research' },
+            { id: 'RESEARCH', label: 'Platforms & Web' },
             { id: 'CREATIVE', label: 'Tools & Frontend' },
           ].map((tab) => (
             <button
@@ -366,7 +366,7 @@ export function WorksSection({ works }: WorksSectionProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  display: 'flex',
+                  display: 'inline-flex',
                   alignItems: 'center',
                   gap: '4px',
                   fontSize: '0.8rem',
@@ -378,7 +378,7 @@ export function WorksSection({ works }: WorksSectionProps) {
                 onMouseEnter={(e) => (e.currentTarget.style.color = portfolioColors.parchmentTextPrimary)}
                 onMouseLeave={(e) => (e.currentTarget.style.color = portfolioColors.parchmentTextSecondary)}
               >
-                Source ↗
+                Source <ExternalLink size={13} />
               </a>
             </div>
           </div>
