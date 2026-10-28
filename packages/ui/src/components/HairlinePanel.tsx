@@ -24,10 +24,11 @@ export function HairlinePanel({
       sx={{
         backgroundColor: portfolioColors.parchmentSurface,
         border: `1px solid ${portfolioColors.parchmentBorder}`,
-        borderRadius: '1px',
-        p: 2,
+        borderRadius: '8px',
+        p: { xs: 2, sm: 2.5 },
         display: 'flex',
         flexDirection: 'column',
+        boxShadow: '0 1px 3px rgba(0, 0, 0, 0.02)',
         ...sx,
       }}
       {...props}
@@ -38,8 +39,8 @@ export function HairlinePanel({
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            paddingBottom: '10px',
-            marginBottom: '10px',
+            paddingBottom: '12px',
+            marginBottom: '14px',
             borderBottom: `1px solid ${portfolioColors.parchmentBorderSubtle}`,
           }}
         >
@@ -47,11 +48,9 @@ export function HairlinePanel({
             <Typography
               level="title-sm"
               sx={{
-                textTransform: 'uppercase',
-                letterSpacing: '0.08em',
-                fontFamily: 'code',
-                fontSize: '0.78rem',
-                fontWeight: 700,
+                letterSpacing: '0.04em',
+                fontSize: '0.82rem',
+                fontWeight: 500,
                 color: portfolioColors.parchmentTextPrimary,
               }}
             >

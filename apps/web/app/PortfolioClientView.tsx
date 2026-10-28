@@ -1,85 +1,56 @@
 'use client';
 
-import React, { useState } from 'react';
-import { DockSidebar } from '../components/DockSidebar';
-import { TopBar } from '../components/TopBar';
-import { OverviewRow } from '../components/OverviewRow';
-import { RecentWorks } from '../components/RecentWorks';
-import { ScheduleAndLog } from '../components/ScheduleAndLog';
-import { RecordInspector } from '../components/RecordInspector';
-import { StatusBar } from '../components/StatusBar';
-import { portfolioColors } from '@portfolio/ui';
-import { DashboardOverview, Work } from '@portfolio/types';
+import React from 'react';
+import { Navbar } from '../components/Navbar';
+import { HeroSection } from '../components/HeroSection';
+import { WorksSection } from '../components/WorksSection';
+import { ArchitectureSection } from '../components/ArchitectureSection';
+import { ExperienceSection } from '../components/ExperienceSection';
+import { AboutSection } from '../components/AboutSection';
+import { ContactSection } from '../components/ContactSection';
+import { Footer } from '../components/Footer';
+import { DashboardOverview } from '@portfolio/types';
 
 export interface PortfolioClientViewProps {
   initialOverview?: DashboardOverview | null;
 }
 
 export function PortfolioClientView({ initialOverview }: PortfolioClientViewProps) {
-  const [selectedWork, setSelectedWork] = useState<Work | null>(null);
-
   return (
     <div
       style={{
+        minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
-        height: '100vh',
-        width: '100vw',
-        overflow: 'hidden',
-        backgroundColor: portfolioColors.parchmentBg,
+        backgroundColor: '#F9F9F8',
       }}
     >
-      {/* Main Workstation Layout (Sidebar + Content Workspace + Inspector) */}
-      <div style={{ display: 'flex', flex: 1, minHeight: 0, overflow: 'hidden' }}>
-        {/* Left Dark Navigation Dock */}
-        <DockSidebar />
+      {/* 1. Sticky Responsive Navbar */}
+      <Navbar />
 
-        {/* Center Workspace Canvas */}
-        <div
-          style={{
-            flex: 1,
-            display: 'flex',
-            flexDirection: 'column',
-            minWidth: 0,
-            overflow: 'hidden',
-          }}
-        >
-          {/* Top Bar Header */}
-          <TopBar />
+      {/* 2. Main Page Flow */}
+      <main style={{ flex: 1 }}>
+        {/* Hero Section */}
+        <HeroSection />
 
-          {/* Scrollable Canvas */}
-          <div
-            style={{
-              flex: 1,
-              padding: '16px',
-              overflowY: 'auto',
-              backgroundColor: portfolioColors.parchmentBg,
-            }}
-          >
-            {/* 1. Overview Metric Tiles */}
-            <OverviewRow overview={initialOverview ?? undefined} />
+        {/* Selected Works Section */}
+        <WorksSection works={initialOverview?.recentWorks} />
 
-            {/* 2. Recent Works Grid */}
-            <RecentWorks
-              works={initialOverview?.recentWorks}
-              selectedWorkId={selectedWork?.id}
-              onSelectWork={(work) => setSelectedWork(work)}
-            />
+        {/* Architectural Principles */}
+        <ArchitectureSection />
 
-            {/* 3. Upcoming Sprints & Technical Notes */}
-            <ScheduleAndLog
-              actions={initialOverview?.upcomingActions}
-              log={initialOverview?.latestDailyLog}
-            />
-          </div>
-        </div>
+        {/* Chronological Milestones & Experience */}
+        <ExperienceSection />
 
-        {/* Right Record Inspector Panel */}
-        <RecordInspector work={selectedWork} />
-      </div>
+        {/* About Taha Asadullah */}
+        <AboutSection />
 
-      {/* Bottom Technical Status Bar */}
-      <StatusBar />
+        {/* Direct Contact & Outreach */}
+        <ContactSection />
+      </main>
+
+      {/* 3. Minimal Footer */}
+      <Footer />
     </div>
   );
 }
