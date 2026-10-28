@@ -1,0 +1,105 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum WorkStatus {
+  PLANNED
+  IN_PROGRESS
+  MAINTENANCE
+  COMPLETED
+}
+
+enum WorkType {
+  PROJECT
+  RESEARCH
+  CREATIVE
+  SYSTEM
+}
+
+enum ActionStatus {
+  TO_DO
+  IN_PROGRESS
+  WAITING
+  COMPLETED
+}
+
+model Work {
+  id           String         @id @default(uuid())
+  recordId     String         @unique // e.g. "WRK-2025-0003"
+  slug         String         @unique
+  title        String
+  subtitle     String?
+  description  String
+  type         WorkType       @default(PROJECT)
+  status       WorkStatus     @default(IN_PROGRESS)
+  area         String         @default("Personal / Studio")
+  owner        String         @default("Taha Asadullah")
+  progress     Int            @default(0) // 0-100%
+  thumbnailUrl String?
+  model3dUrl   String?        // GLTF/GLB wireframe or asset url for R3F
+  tags         String[]
+  metadata     Json?          // Flexible tech stack & link data
+  milestones   Milestone[]
+  actions      ActionItem[]
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+
+  @@index([status, type])
+}
+
+model Milestone {
+  id        String   @id @default(uuid())
+  workId    String
+  work      Work     @relation(fields: [workId], references: [id], onDelete: Cascade)
+  title     String
+  completed Boolean  @default(false)
+  order     Int      @default(0)
+}
+
+model ActionItem {
+  id        String       @id @default(uuid())
+  workId    String?
+  work      Work?        @relation(fields: [workId], references: [id], onDelete: SetNull)
+  time      String       // e.g. "09:30" or target sprint window
+  title     String
+  status    ActionStatus @default(TO_DO)
+  priority  Int          @default(3) // 1 to 5 dot rating
+  date      DateTime     @default(now())
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+
+  @@index([status, date])
+}
+
+model DailyLog {
+  id        String   @id @default(uuid())
+  date      DateTime @default(now())
+  title     String
+  content   String
+  energy    Int      @default(80) // 0-100%
+  focusRate Int      @default(75) // 0-100%
+  tags      String[]
+  createdAt DateTime @default(now())
+}
+
+model SystemMetric {
+  id            String   @id @default(uuid())
+  totalFiles    Int      @default(0)
+  storageBytes  BigInt   @default(0)
+  lastBackupAt  DateTime @default(now())
+  integrityOk   Boolean  @default(true)
+  systemVersion String   @default("0.1.0")
+  updatedAt     DateTime @updatedAt
+}
+
+model AdminUser {
+  id           String   @id @default(uuid())
+  username     String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+}
