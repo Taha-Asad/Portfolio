@@ -65,7 +65,7 @@ export default function AdminCuratorPage() {
           <Button
             size="sm"
             variant="outlined"
-            onClick={() => window.open('http://localhost:3000', '_blank')}
+            onClick={() => window.open('/', '_blank')}
             sx={{
               fontSize: '0.68rem',
               fontFamily: 'code',

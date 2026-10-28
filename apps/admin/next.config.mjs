@@ -6,6 +6,7 @@ const __dirname = path.dirname(__filename);
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  basePath: '/admin',
   transpilePackages: ['@portfolio/ui', '@portfolio/types'],
   reactStrictMode: true,
   turbopack: {
